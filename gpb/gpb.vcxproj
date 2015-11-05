@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D2D8C5D1-0D53-43CF-A021-5566EA19893C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>gpb</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\lib;$(LibraryPath)</LibraryPath>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GPB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GPB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GPB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GPB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="io\formats\image\jpeg.cc" />
+    <ClCompile Include="io\formats\image\png.cc" />
+    <ClCompile Include="io\serialization\serial_file_istream.cc" />
+    <ClCompile Include="io\serialization\serial_file_ostream.cc" />
+    <ClCompile Include="io\serialization\serial_input_stream.cc" />
+    <ClCompile Include="io\serialization\serial_istream.cc" />
+    <ClCompile Include="io\serialization\serial_ostream.cc" />
+    <ClCompile Include="io\serialization\serial_output_stream.cc" />
+    <ClCompile Include="lang\array.cc" />
+    <ClCompile Include="lang\exceptions\exception.cc" />
+    <ClCompile Include="lang\exceptions\ex_bad_cast.cc" />
+    <ClCompile Include="lang\exceptions\ex_file_error.cc" />
+    <ClCompile Include="lang\exceptions\ex_file_open_error.cc" />
+    <ClCompile Include="lang\exceptions\ex_file_read_error.cc" />
+    <ClCompile Include="lang\exceptions\ex_file_write_error.cc" />
+    <ClCompile Include="lang\exceptions\ex_index_out_of_bounds.cc" />
+    <ClCompile Include="lang\exceptions\ex_invalid_argument.cc" />
+    <ClCompile Include="lang\exceptions\ex_not_found.cc" />
+    <ClCompile Include="lang\exceptions\ex_not_implemented.cc" />
+    <ClCompile Include="lang\exceptions\ex_null_pointer_dereference.cc" />
+    <ClCompile Include="lang\exceptions\throwable.cc" />
+    <ClCompile Include="lang\types\type_function_map.cc" />
+    <ClCompile Include="lang\types\type_identifier.cc" />
+    <ClCompile Include="math\exact.cc" />
+    <ClCompile Include="math\geometry\point_2D.cc" />
+    <ClCompile Include="math\geometry\point_3D.cc" />
+    <ClCompile Include="math\geometry\seg_intersect.cc" />
+    <ClCompile Include="math\geometry\triangle_2D.cc" />
+    <ClCompile Include="math\geometry\triangle_3D.cc" />
+    <ClCompile Include="math\geometry\triangulation.cc" />
+    <ClCompile Include="math\libraries\lib_image.cc" />
+    <ClCompile Include="math\libraries\lib_matrix.cc" />
+    <ClCompile Include="math\libraries\lib_signal.cc" />
+    <ClCompile Include="math\math.cc" />
+    <ClCompile Include="math\matrices\exceptions\ex_matrix_dimension_mismatch.cc" />
+    <ClCompile Include="math\matrices\exceptions\ex_matrix_singular.cc" />
+    <ClCompile Include="math\matrices\matrix.cc" />
+    <ClCompile Include="math\random\generators\rand_gen_normal.cc" />
+    <ClCompile Include="math\random\generators\rand_gen_uniform.cc" />
+    <ClCompile Include="math\random\sources\mersenne_twister_32.cc" />
+    <ClCompile Include="math\random\sources\mersenne_twister_64.cc" />
+    <ClCompile Include="math\random\sources\rand_source.cc" />
+    <ClCompile Include="math\random\sources\rand_source_32.cc" />
+    <ClCompile Include="math\random\sources\rand_source_64.cc" />
+    <ClCompile Include="math\random\sources\rand_source_default.cc" />
+    <ClCompile Include="math\random\sources\system_entropy.cc" />
+    <ClCompile Include="math\random\util\randperm.cc" />
+    <ClCompile Include="mlearning\clustering\clusterers\abstract\clusterer.cc" />
+    <ClCompile Include="mlearning\clustering\clusterers\abstract\weighted_clusterer.cc" />
+    <ClCompile Include="mlearning\clustering\clusterers\kmeans\basic_clusterer.cc" />
+    <ClCompile Include="vision\features\feature.cc" />
+    <ClCompile Include="vision\features\feature_descriptor.cc" />
+    <ClCompile Include="vision\features\geometric_blur.cc" />
+    <ClCompile Include="vision\features\parameters\geometric_blur_params.cc" />
+    <ClCompile Include="vision\recognition\classifiers\abstract\classifier.cc" />
+    <ClCompile Include="vision\recognition\classifiers\bigram_classifier.cc" />
+    <ClCompile Include="vision\recognition\classifiers\unigram_classifier.cc" />
+    <ClCompile Include="vision\recognition\databases\category_db.cc" />
+    <ClCompile Include="vision\recognition\models\category.cc" />
+    <ClCompile Include="vision\recognition\models\exemplar.cc" />
+    <ClCompile Include="vision\recognition\models\ids\category_id.cc" />
+    <ClCompile Include="vision\recognition\models\ids\exemplar_id.cc" />
+    <ClCompile Include="vision\recognition\models\ids\feature_id.cc" />
+    <ClCompile Include="vision\segmentation\boundary.cc" />
+    <ClCompile Include="vision\segmentation\boundary_element.cc" />
+    <ClCompile Include="vision\segmentation\region.cc" />
+    <ClCompile Include="vision\segmentation\segmentation.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\io\formats\image\jpeg.hh" />
+    <ClInclude Include="include\io\formats\image\png.hh" />
+    <ClInclude Include="include\io\serialization\serializers.hh" />
+    <ClInclude Include="include\io\serialization\serial_file_istream.hh" />
+    <ClInclude Include="include\io\serialization\serial_file_ostream.hh" />
+    <ClInclude Include="include\io\serialization\serial_input_stream.hh" />
+    <ClInclude Include="include\io\serialization\serial_istream.hh" />
+    <ClInclude Include="include\io\serialization\serial_ostream.hh" />
+    <ClInclude Include="include\io\serialization\serial_output_stream.hh" />
+    <ClInclude Include="include\io\streams\cerr.hh" />
+    <ClInclude Include="include\io\streams\cin.hh" />
+    <ClInclude Include="include\io\streams\clog.hh" />
+    <ClInclude Include="include\io\streams\cout.hh" />
+    <ClInclude Include="include\io\streams\fstream.hh" />
+    <ClInclude Include="include\io\streams\ifstream.hh" />
+    <ClInclude Include="include\io\streams\iomanip.hh" />
+    <ClInclude Include="include\io\streams\ios.hh" />
+    <ClInclude Include="include\io\streams\iostream.hh" />
+    <ClInclude Include="include\io\streams\istream.hh" />
+    <ClInclude Include="include\io\streams\istringstream.hh" />
+    <ClInclude Include="include\io\streams\ofstream.hh" />
+    <ClInclude Include="include\io\streams\ostream.hh" />
+    <ClInclude Include="include\io\streams\ostringstream.hh" />
+    <ClInclude Include="include\io\streams\stringstream.hh" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\io">
+      <UniqueIdentifier>{c5a62677-9008-4d6b-9e88-34d2637d0f96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\io\serialization">
+      <UniqueIdentifier>{94bbb83b-0a42-4222-b6a6-b41f13cfe2c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\io\formats">
+      <UniqueIdentifier>{e9ba78a3-ef6c-46bc-b694-5b1a4114d0b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\io\formats\image">
+      <UniqueIdentifier>{eea77ae7-6319-41eb-a189-6891627a3426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\io">
+      <UniqueIdentifier>{c21e1bd7-41a7-4f7b-9957-086180b10dfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\io\formats">
+      <UniqueIdentifier>{f8a1cbd9-cfee-448b-bdf9-152a6fe538d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\io\formats\image">
+      <UniqueIdentifier>{65162a37-2c81-46c2-9e32-ee08e0587ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\io\serialization">
+      <UniqueIdentifier>{b0918c4f-d74f-4531-92e2-415a775bee1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\io\streams">
+      <UniqueIdentifier>{86db8fb8-ede3-4574-b036-a17608ee9667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{2a182d90-6d98-41c6-a10a-aa2e85b0a29f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\random">
+      <UniqueIdentifier>{27809b0d-a49d-4833-9976-bc9afb5bc3a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\random\generators">
+      <UniqueIdentifier>{e3e9ce9b-057d-4bdc-8652-72322de6af58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\random\sources">
+      <UniqueIdentifier>{a7f6611e-a92a-4406-bb02-6b6a8e9205fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\random\util">
+      <UniqueIdentifier>{d8b46dbc-1367-4242-ba8d-e84e0eddf3ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\matrices">
+      <UniqueIdentifier>{e3dd9cc8-c188-4257-a115-b6212d385eb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\matrices\exceptions">
+      <UniqueIdentifier>{9cf541d0-9261-402b-86ea-b0a6ef679665}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\libraries">
+      <UniqueIdentifier>{4129abc4-1aeb-45c2-a673-c37fa67a6073}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\geometry">
+      <UniqueIdentifier>{4e162fa5-416b-4053-ac9e-118e07ed8a7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mlearning">
+      <UniqueIdentifier>{36e189a2-aaef-410a-a5ed-1ede449a522f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mlearning\clustering">
+      <UniqueIdentifier>{61e3f226-35b0-4d1d-a76f-62e585edbdd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mlearning\clustering\clusterers">
+      <UniqueIdentifier>{53d749a9-d8f3-4b6c-8e18-15fe65ae634b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mlearning\clustering\clusterers\abstract">
+      <UniqueIdentifier>{b3dfeb36-ce16-42c4-a1b9-2383956f7ae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mlearning\clustering\clusterers\kmeans">
+      <UniqueIdentifier>{a9b61180-b42f-43a1-98c4-a26fcef9d1d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision">
+      <UniqueIdentifier>{55bd787d-6c87-4b08-88bd-e50e9c880f31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\features">
+      <UniqueIdentifier>{8f61198b-a41a-4701-a0b2-0da5a9e695a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\recognition">
+      <UniqueIdentifier>{6d3b4bc7-6f7c-45cc-9396-ced7334714f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\segmentation">
+      <UniqueIdentifier>{2291b5c8-3830-448d-98ad-079d57be3655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\features\parameters">
+      <UniqueIdentifier>{4a5401df-86d4-49e2-bd2c-45cc2d440a18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\recognition\classifiers">
+      <UniqueIdentifier>{016c9d27-8dbd-46c8-9af4-d35695e5cd85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\recognition\classifiers\abstract">
+      <UniqueIdentifier>{44bab787-c872-4f0e-b529-64bb7e0ca2b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\recognition\databases">
+      <UniqueIdentifier>{feb84bb6-9a4a-4edf-970d-fe981dcd0ef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\recognition\models">
+      <UniqueIdentifier>{3cbc976f-b684-4252-be14-64be4a94b031}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\recognition\models\ids">
+      <UniqueIdentifier>{ef30945e-9027-4596-afa1-f0672792f61d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lang">
+      <UniqueIdentifier>{bdb7ce94-6022-47e5-b950-dcba1fc47af1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lang\types">
+      <UniqueIdentifier>{a4ee8751-04ad-44fe-8a7c-16efac850858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lang\exceptions">
+      <UniqueIdentifier>{f905fa9f-d0fd-4590-96fe-e4a42c0dc042}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="io\formats\image\jpeg.cc">
+      <Filter>Source Files\io\formats\image</Filter>
+    </ClCompile>
+    <ClCompile Include="io\formats\image\png.cc">
+      <Filter>Source Files\io\formats\image</Filter>
+    </ClCompile>
+    <ClCompile Include="io\serialization\serial_file_istream.cc">
+      <Filter>Source Files\io\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="io\serialization\serial_file_ostream.cc">
+      <Filter>Source Files\io\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="io\serialization\serial_input_stream.cc">
+      <Filter>Source Files\io\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="io\serialization\serial_istream.cc">
+      <Filter>Source Files\io\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="io\serialization\serial_ostream.cc">
+      <Filter>Source Files\io\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="io\serialization\serial_output_stream.cc">
+      <Filter>Source Files\io\serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="math\exact.cc">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="math\math.cc">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\generators\rand_gen_normal.cc">
+      <Filter>Source Files\math\random\generators</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\generators\rand_gen_uniform.cc">
+      <Filter>Source Files\math\random\generators</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\util\randperm.cc">
+      <Filter>Source Files\math\random\util</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\sources\mersenne_twister_32.cc">
+      <Filter>Source Files\math\random\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\sources\mersenne_twister_64.cc">
+      <Filter>Source Files\math\random\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\sources\rand_source.cc">
+      <Filter>Source Files\math\random\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\sources\rand_source_32.cc">
+      <Filter>Source Files\math\random\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\sources\rand_source_64.cc">
+      <Filter>Source Files\math\random\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\sources\rand_source_default.cc">
+      <Filter>Source Files\math\random\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="math\random\sources\system_entropy.cc">
+      <Filter>Source Files\math\random\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matrices\matrix.cc">
+      <Filter>Source Files\math\matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matrices\exceptions\ex_matrix_dimension_mismatch.cc">
+      <Filter>Source Files\math\matrices\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matrices\exceptions\ex_matrix_singular.cc">
+      <Filter>Source Files\math\matrices\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="math\libraries\lib_image.cc">
+      <Filter>Source Files\math\libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="math\libraries\lib_matrix.cc">
+      <Filter>Source Files\math\libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="math\libraries\lib_signal.cc">
+      <Filter>Source Files\math\libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="math\geometry\point_2D.cc">
+      <Filter>Source Files\math\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="math\geometry\point_3D.cc">
+      <Filter>Source Files\math\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="math\geometry\seg_intersect.cc">
+      <Filter>Source Files\math\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="math\geometry\triangle_2D.cc">
+      <Filter>Source Files\math\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="math\geometry\triangle_3D.cc">
+      <Filter>Source Files\math\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="math\geometry\triangulation.cc">
+      <Filter>Source Files\math\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="mlearning\clustering\clusterers\abstract\clusterer.cc">
+      <Filter>Source Files\mlearning\clustering\clusterers\abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="mlearning\clustering\clusterers\abstract\weighted_clusterer.cc">
+      <Filter>Source Files\mlearning\clustering\clusterers\abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="mlearning\clustering\clusterers\kmeans\basic_clusterer.cc">
+      <Filter>Source Files\mlearning\clustering\clusterers\kmeans</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\features\feature.cc">
+      <Filter>Source Files\vision\features</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\features\feature_descriptor.cc">
+      <Filter>Source Files\vision\features</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\features\geometric_blur.cc">
+      <Filter>Source Files\vision\features</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\features\parameters\geometric_blur_params.cc">
+      <Filter>Source Files\vision\features\parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\segmentation\boundary.cc">
+      <Filter>Source Files\vision\segmentation</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\segmentation\boundary_element.cc">
+      <Filter>Source Files\vision\segmentation</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\segmentation\region.cc">
+      <Filter>Source Files\vision\segmentation</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\segmentation\segmentation.cc">
+      <Filter>Source Files\vision\segmentation</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\classifiers\bigram_classifier.cc">
+      <Filter>Source Files\vision\recognition\classifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\classifiers\unigram_classifier.cc">
+      <Filter>Source Files\vision\recognition\classifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\classifiers\abstract\classifier.cc">
+      <Filter>Source Files\vision\recognition\classifiers\abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\databases\category_db.cc">
+      <Filter>Source Files\vision\recognition\databases</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\models\category.cc">
+      <Filter>Source Files\vision\recognition\models</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\models\exemplar.cc">
+      <Filter>Source Files\vision\recognition\models</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\models\ids\category_id.cc">
+      <Filter>Source Files\vision\recognition\models\ids</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\models\ids\exemplar_id.cc">
+      <Filter>Source Files\vision\recognition\models\ids</Filter>
+    </ClCompile>
+    <ClCompile Include="vision\recognition\models\ids\feature_id.cc">
+      <Filter>Source Files\vision\recognition\models\ids</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\array.cc">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_bad_cast.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_file_error.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_file_open_error.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_file_read_error.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_file_write_error.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_index_out_of_bounds.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_invalid_argument.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_not_found.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_not_implemented.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\ex_null_pointer_dereference.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\exception.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\exceptions\throwable.cc">
+      <Filter>Source Files\lang\exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\types\type_function_map.cc">
+      <Filter>Source Files\lang\types</Filter>
+    </ClCompile>
+    <ClCompile Include="lang\types\type_identifier.cc">
+      <Filter>Source Files\lang\types</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\io\formats\image\jpeg.hh">
+      <Filter>Header Files\io\formats\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\formats\image\png.hh">
+      <Filter>Header Files\io\formats\image</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\cerr.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\cin.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\clog.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\cout.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\fstream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\ifstream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\iomanip.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\ios.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\iostream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\istream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\istringstream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\ofstream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\ostream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\ostringstream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\streams\stringstream.hh">
+      <Filter>Header Files\io\streams</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\serialization\serial_file_istream.hh">
+      <Filter>Header Files\io\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\serialization\serial_file_ostream.hh">
+      <Filter>Header Files\io\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\serialization\serial_input_stream.hh">
+      <Filter>Header Files\io\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\serialization\serial_istream.hh">
+      <Filter>Header Files\io\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\serialization\serial_ostream.hh">
+      <Filter>Header Files\io\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\serialization\serial_output_stream.hh">
+      <Filter>Header Files\io\serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="include\io\serialization\serializers.hh">
+      <Filter>Header Files\io\serialization</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
