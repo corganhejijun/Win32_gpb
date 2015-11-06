@@ -43,7 +43,6 @@ using collections::pointers::auto_collection;
 using concurrent::threads::child_thread;
 using concurrent::threads::runnable;
 using concurrent::threads::thread;
-using functors::comparable_functor;
 using functors::compare_functor;
 using functors::compare_functors;
 using functors::distanceable_functor;
@@ -4522,7 +4521,7 @@ public:
  * Priority comparison functor for skeleton elements.
  */
 class skeleton_element_priority_functor
- : public comparable_functor<skeleton_element> {
+ : public functors::comparable_functor<skeleton_element> {
 public:
    int operator()(
       const skeleton_element& el0, const skeleton_element& el1) const
@@ -4545,7 +4544,7 @@ public:
  * Search comparison functor for skeleton elements.
  */
 class skeleton_element_compare_functor
- : public comparable_functor<skeleton_element> {
+ : public functors::comparable_functor<skeleton_element> {
 public:
    int operator()(
       const skeleton_element& el0, const skeleton_element& el1) const
@@ -6136,21 +6135,6 @@ unsigned long find_contour_point_farthest_from_segment(
  * endpoints intersect only at contour vertices.
  */
 void lib_image::contour_set::subdivide_global() {
-   /* create comparison functor for sorting edges by vertex id */
-   class edge_compare : public comparable_functor<contour_edge> {
-   public:
-      int operator()(const contour_edge& e0, const contour_edge& e1) const {
-         bool v0_cmp = (e0.vertex_start->id < e0.vertex_end->id);
-         bool v1_cmp = (e1.vertex_start->id < e1.vertex_end->id);
-         unsigned long min0 = v0_cmp ? e0.vertex_start->id : e0.vertex_end->id;
-         unsigned long max0 = v0_cmp ? e0.vertex_end->id : e0.vertex_start->id;
-         unsigned long min1 = v1_cmp ? e1.vertex_start->id : e1.vertex_end->id;
-         unsigned long max1 = v1_cmp ? e1.vertex_end->id : e1.vertex_start->id;
-         int cmp_min = (min0 < min1) ? -1 : ((min0 > min1) ? 1 : 0);
-         int cmp_max = (max0 < max1) ? -1 : ((max0 > max1) ? 1 : 0);
-         return ((cmp_min == 0) ? cmp_max : cmp_min);
-      }
-   };
    static const edge_compare e_compare;
    /* subdivide edges which share both vertices */
    {

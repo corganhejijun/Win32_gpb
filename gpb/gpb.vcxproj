@@ -201,6 +201,7 @@
     <ClCompile Include="mlearning\clustering\clusterers\kmeans\basic_clusterer.cc" />
     <ClCompile Include="vision\features\feature.cc" />
     <ClCompile Include="vision\features\feature_descriptor.cc" />
+    <ClCompile Include="vision\features\features_id.cc" />
     <ClCompile Include="vision\features\geometric_blur.cc" />
     <ClCompile Include="vision\features\parameters\geometric_blur_params.cc" />
     <ClCompile Include="vision\recognition\classifiers\abstract\classifier.cc" />

@@ -1533,6 +1533,23 @@ public:
        * Enforce the global criteria that the line segments between contour
        * endpoints intersect only at contour vertices.
        */
+
+      /* create comparison functor for sorting edges by vertex id */
+      class edge_compare : public functors::comparable_functor<contour_edge> {
+      public:
+          int operator()(const contour_edge& e0, const contour_edge& e1) const {
+              bool v0_cmp = (e0.vertex_start->id < e0.vertex_end->id);
+              bool v1_cmp = (e1.vertex_start->id < e1.vertex_end->id);
+              unsigned long min0 = v0_cmp ? e0.vertex_start->id : e0.vertex_end->id;
+              unsigned long max0 = v0_cmp ? e0.vertex_end->id : e0.vertex_start->id;
+              unsigned long min1 = v1_cmp ? e1.vertex_start->id : e1.vertex_end->id;
+              unsigned long max1 = v1_cmp ? e1.vertex_end->id : e1.vertex_start->id;
+              int cmp_min = (min0 < min1) ? -1 : ((min0 > min1) ? 1 : 0);
+              int cmp_max = (max0 < max1) ? -1 : ((max0 > max1) ? 1 : 0);
+              return ((cmp_min == 0) ? cmp_max : cmp_min);
+          }
+      };
+
       void subdivide_global();
 
       /*********************************************************************

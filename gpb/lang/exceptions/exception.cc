@@ -5,7 +5,7 @@
 #include "lang/exceptions/exception.hh"
 #include "lang/null.hh"
 
-#include <execinfo.h>
+//#include <execinfo.h>
 #include <cstdlib>
 #include <cstring>
 
@@ -28,11 +28,13 @@ exception::exception(const char* msg) {
       _message[n] = msg[n];
    _message[msg_size] = '\0';
    /* store stack trace */
+   /*
    const int strace_max_size = 512;
    void *strace[strace_max_size];
    int strace_size = backtrace(strace, strace_max_size);
    _stack_trace = backtrace_symbols(strace, strace_size);
    _stack_trace_size = static_cast<unsigned long>(strace_size);
+   */
 }
 
 /*

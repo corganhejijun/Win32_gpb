@@ -19,7 +19,7 @@ using interfaces::comparable;
 template <typename T>
 class comparable_functor {
 public:
-   virtual ~comparable_functor() { }
+   //virtual ~comparable_functor() { }
    virtual int operator()(const T&, const T&) const = 0;
 };
 
