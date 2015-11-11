@@ -25,7 +25,6 @@ namespace vision {
         using math::matrices::matrix;
         using mlearning::clustering::clusterers::graph::tree_clusterer;
         using functors::compare_functors;
-        using namespace std;
 
         /*
          * Compute region features given an oversegmentation.
@@ -47,7 +46,7 @@ namespace vision {
             /* allocate regions */
             unsigned long n_regions = max(assign) + 1;
             for (unsigned long n = 0; n < n_regions; n++) {
-                auto_ptr<region> reg(new region);
+                std::auto_ptr<region> reg(new region);
                 reg->_id = n;
                 regions->add(*reg);
                 reg.release();
@@ -81,7 +80,7 @@ namespace vision {
                             region& rb = (*regions)[pix_other_assign];
                             /* create boundary if needed */
                             if (!reg._boundary_map.contains(pix_other_assign)) {
-                                auto_ptr<boundary> b(new boundary);
+                                std::auto_ptr<boundary> b(new boundary);
                                 b->_id = boundaries->size();
                                 boundaries->add(*b);
                                 reg._boundary_map.add(rb._id, b->_id);
@@ -108,7 +107,7 @@ namespace vision {
                             region& rb = (*regions)[pix_other_assign];
                             /* create boundary if needed */
                             if (!reg._boundary_map.contains(pix_other_assign)) {
-                                auto_ptr<boundary> b(new boundary);
+                                std::auto_ptr<boundary> b(new boundary);
                                 b->_id = boundaries->size();
                                 boundaries->add(*b);
                                 reg._boundary_map.add(rb._id, b->_id);
@@ -135,7 +134,7 @@ namespace vision {
                             region& rb = (*regions)[pix_other_assign];
                             /* create boundary if needed */
                             if (!reg._boundary_map.contains(pix_other_assign)) {
-                                auto_ptr<boundary> b(new boundary);
+                                std::auto_ptr<boundary> b(new boundary);
                                 b->_id = boundaries->size();
                                 boundaries->add(*b);
                                 reg._boundary_map.add(rb._id, b->_id);
@@ -173,15 +172,12 @@ namespace vision {
             { }
 
             ~region_agglm() { }
-
             bool is_mergeable(const double& c) const {
                 return ((_n_regions_init - _n_merges) > 10);
             }
 
-            /*
-             * Merge regions.
-             */
-            auto_ptr<region> merge(
+            //Merge regions.
+            std::auto_ptr<region> merge(
                 const tree_clusterer<region, double>::tree& t0,
                 const tree_clusterer<region, double>::tree& t1) const
             {
@@ -189,7 +185,7 @@ namespace vision {
                 region& r0 = *(t0.data);
                 region& r1 = *(t1.data);
                 // merge regions
-                auto_ptr<region> r(new region);
+                std::auto_ptr<region> r(new region);
                 r->_id = _n_regions++;
                 r->_size = r0._size + r1._size;
                 r->_sum_L = r0._sum_L + r1._sum_L;
@@ -202,20 +198,18 @@ namespace vision {
                 return r;
             }
 
-            /*
-             * Compute boundary between regions.
-             */
-            auto_ptr<double> update(
+            // Compute boundary between regions.
+            std::auto_ptr<double> update(
                 const tree_clusterer<region, double>::tree& t0,
                 const tree_clusterer<region, double>::tree& t1) const
             {
-                /* determine which is the newest vertex */
+                // determine which is the newest vertex
                 const tree_clusterer<region, double>::tree& t_old = (t0.data->_id < t1.data->_id) ? t0 : t1;
                 const tree_clusterer<region, double>::tree& t_new = (t0.data->_id < t1.data->_id) ? t1 : t0;
                 // get regions to update boundary between
                 region& r_old = *(t_old.data);
                 region& r_new = *(t_new.data);
-                /* check if boundary needs to be computed */
+                // check if boundary needs to be computed
                 if (r_new._id >= _n_regions_init) {
                     // get subregions of new region
                     region& r_left = *(t_new.left->data);
@@ -230,7 +224,7 @@ namespace vision {
                         boundary& b_left = (*_boundaries)[b_left_id];
                         boundary& b_right = (*_boundaries)[b_right_id];
                         // merge the boundaries
-                        auto_ptr<boundary> b(new boundary());
+                        std::auto_ptr<boundary> b(new boundary());
                         b->_id = _boundaries->size();
                         b->_size = b_left._size + b_right._size;
                         b->_sum_contrast = b_left._sum_contrast + b_right._sum_contrast;
@@ -259,18 +253,15 @@ namespace vision {
                         r_new._boundary_map.add(r_old._id, b_right_id);
                     }
                 }
-                /* lookup boundary */
+                // lookup boundary
                 unsigned long& b_id = r_new._boundary_map.find_image(r_old._id);
                 boundary& b = (*_boundaries)[b_id];
-                //boundary& b = (*_boundaries)[0];
-                /* compute cost */
+                // compute cost
                 return region_agglm::cost(r_old, r_new, b);
             }
 
-            /*
-             * Compute region merge cost.
-             */
-            static auto_ptr<double> cost(
+            // Compute region merge cost.
+            static std::auto_ptr<double> cost(
                 const region& r0, const region& r1, const boundary& b)
             {
 
@@ -294,28 +285,7 @@ namespace vision {
                 double A1 = area1 + alpha_3 * quad_err1;
                 double A = (A0 < A1) ? A0 : A1;
                 double C = b_um * math::pow(A, alpha_2);
-                return auto_ptr<double>(new double(C));
-
-                /*
-                static const double alpha_1 = 1;
-                double mean_lc = b._sum_contrast/double(b._size);
-                double mean_pb = b._sum_pb/double(b._size);
-                double b_um = mean_lc + alpha_1 * mean_pb;
-                return auto_ptr<double>(new double(b_um));
-                */
-                /*
-                double n = r0._size + r1._size;
-                double sum_L  = r0._sum_L  + r1._sum_L;
-                double sum_L2 = r0._sum_L2 + r1._sum_L2;
-                double sum_a  = r0._sum_a  + r1._sum_a;
-                double sum_a2 = r0._sum_a2 + r1._sum_a2;
-                double sum_b  = r0._sum_b  + r1._sum_b;
-                double sum_b2 = r0._sum_b2 + r1._sum_b2;
-                double C = sum_L2/n - (sum_L*sum_L)/(n*n)
-                + sum_a2/n - (sum_a*sum_a)/(n*n)
-                + sum_b2/n - (sum_b*sum_b)/(n*n);
-                return auto_ptr<double>(new double(C));
-                */
+                return std::auto_ptr<double>(new double(C));
             }
         protected:
             mutable unsigned long _n_merges;
@@ -332,7 +302,7 @@ namespace vision {
             auto_collection< region, array_list<region> >   regions,
             auto_collection< boundary, array_list<boundary> > boundaries)
         {
-            /* build edge connectivity */
+            // build edge connectivity
             std::cout << "init edges\n";
             auto_collection<
                 array<unsigned long>, array_list< array<unsigned long> > > edges(
@@ -341,7 +311,7 @@ namespace vision {
             std::cout << "building edges\n";
             for (array_list<region>::iterator_t i(*regions); i.has_next();) {
                 region& r = i.next();
-                auto_ptr< array<unsigned long> > edge_inds(
+                std::auto_ptr< array<unsigned long> > edge_inds(
                     new array<unsigned long>(r._boundary_map.size())
                     );
                 map<unsigned long, unsigned long>::iterator_t ii(r._boundary_map);
@@ -359,8 +329,6 @@ namespace vision {
             std::cout << "calling tree clusterer\n";
             tree_clusterer<region, double> c(r_agglm);
             return c.cluster(*regions, *edges);
-            //array<unsigned long> arr(0);
-            //return arr;
         }
 
     } /* namespace segmentation */

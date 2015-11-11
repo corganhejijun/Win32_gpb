@@ -129,6 +129,42 @@ public:
     */
    static void run(runnable&, runnable&);
    static void run(const collection<runnable>&);
+
+   /*
+   * Runnable object which wraps the run() method of the child thread,
+   * setting the default number of processors, and catching exceptions.
+   */
+   class child_runnable : public runnable {
+   public:
+       /*
+       * Constructor.
+       */
+       explicit child_runnable(
+           runnable&,     /* object to run */
+           unsigned long  /* # processors to allocate to it */
+           );
+
+       /*
+       * Destructor.
+       */
+       virtual ~child_runnable();
+
+       /*
+       * Run method.
+       * Wrap the run method of the thread.
+       */
+       virtual void run();
+
+       /*
+       * Raise pending exception (if any).
+       */
+       void raise();
+
+   private:
+       runnable&           _runnable_obj;  /* object to run */
+       unsigned long       _n_processors;  /* # processors to allocate to child */
+       std::auto_ptr<throwable> _exception;     /* pending exception (if any) */
+   };
    
 private:
    /*
@@ -174,42 +210,6 @@ private:
        * Group members.
        */
       collection<runnable>& runnables;
-   };
-   
-   /*
-    * Runnable object which wraps the run() method of the child thread, 
-    * setting the default number of processors, and catching exceptions.
-    */
-   class child_runnable : public runnable {
-   public:
-      /*
-       * Constructor.
-       */
-      explicit child_runnable(
-         runnable&,     /* object to run */
-         unsigned long  /* # processors to allocate to it */
-      );
-
-      /*
-       * Destructor.
-       */
-      virtual ~child_runnable();
-
-      /*
-       * Run method.
-       * Wrap the run method of the thread.
-       */
-      virtual void run();
-     
-      /*
-       * Raise pending exception (if any).
-       */
-      void raise();
-      
-   private:
-      runnable&           _runnable_obj;  /* object to run */
-      unsigned long       _n_processors;  /* # processors to allocate to child */
-      std::auto_ptr<throwable> _exception;     /* pending exception (if any) */
    };
 };
 

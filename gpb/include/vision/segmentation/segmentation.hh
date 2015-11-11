@@ -26,23 +26,25 @@ using math::matrices::matrix;
  * Return the regions and boundaries.
  */
 void compute_regions(
-   const matrix<unsigned long>&, /* oversegmentation pixel assignments */
-   const matrix<>&,              /* image L channel */
-   const matrix<>&,              /* image a channel */
-   const matrix<>&,              /* image b channel */
-   const matrix<>&,              /* local contrast at each pixel */
-   const matrix<>&,              /* pb at each pixel */
-   auto_collection< region,   array_list<region> >&,  /* returned regions */
-   auto_collection< boundary, array_list<boundary> >& /* returned boundaries */
+   const matrix<unsigned long>&, // oversegmentation pixel assignments
+   const matrix<>&,              // image L channel
+   const matrix<>&,              // image a channel
+   const matrix<>&,              // image b channel
+   const matrix<>&,              // local contrast at each pixel
+   const matrix<>&,              // pb at each pixel 
+   auto_collection< region,   array_list<region> >&,  // returned regions 
+   auto_collection< boundary, array_list<boundary> >& // returned boundaries 
 );
+
+class region_agglm;
 
 /*
  * Create a segmentation given initial regions and boundaries.
  * Return the assignment of initial regions -> final regions.
  */
 array<unsigned long> segment(
-   auto_collection< region,   array_list<region> >,  /* regions */
-   auto_collection< boundary, array_list<boundary> > /* boundaries */
+   auto_collection< region,   array_list<region> >,  // regions
+   auto_collection< boundary, array_list<boundary> > // boundaries
 );
 
 } /* namespace segmentation */

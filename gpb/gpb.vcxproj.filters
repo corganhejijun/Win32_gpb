@@ -121,6 +121,18 @@
     <Filter Include="Source Files\lang\exceptions">
       <UniqueIdentifier>{f905fa9f-d0fd-4590-96fe-e4a42c0dc042}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\concurrent">
+      <UniqueIdentifier>{910a5a2b-ef52-435f-826f-c6782146ffcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\concurrent\threads">
+      <UniqueIdentifier>{63e1d788-41b9-4ed5-bcc1-87dca39117a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\concurrent\threads\synchronization">
+      <UniqueIdentifier>{91948dce-83ee-4bd9-ae93-0524969938f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\concurrent\threads\synchronization\synchronizables">
+      <UniqueIdentifier>{6198cd8d-a909-469a-bc9d-7146adb7f6cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="io\formats\image\jpeg.cc">
@@ -191,9 +203,6 @@
     </ClCompile>
     <ClCompile Include="math\matrices\exceptions\ex_matrix_singular.cc">
       <Filter>Source Files\math\matrices\exceptions</Filter>
-    </ClCompile>
-    <ClCompile Include="math\libraries\lib_image.cc">
-      <Filter>Source Files\math\libraries</Filter>
     </ClCompile>
     <ClCompile Include="math\libraries\lib_matrix.cc">
       <Filter>Source Files\math\libraries</Filter>
@@ -326,6 +335,36 @@
     </ClCompile>
     <ClCompile Include="vision\features\features_id.cc">
       <Filter>Source Files\vision\features</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\auto_parallelize.cc">
+      <Filter>Source Files\concurrent\threads</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\child_thread.cc">
+      <Filter>Source Files\concurrent\threads</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\runnable.cc">
+      <Filter>Source Files\concurrent\threads</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\thread.cc">
+      <Filter>Source Files\concurrent\threads</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\synchronization\counter.cc">
+      <Filter>Source Files\concurrent\threads\synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\synchronization\semphore.cc">
+      <Filter>Source Files\concurrent\threads\synchronization</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\synchronization\synchronizables\synchronizable.cc">
+      <Filter>Source Files\concurrent\threads\synchronization\synchronizables</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\synchronization\synchronizables\synchronized.cc">
+      <Filter>Source Files\concurrent\threads\synchronization\synchronizables</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\synchronization\synchronizables\synchronized_rw.cc">
+      <Filter>Source Files\concurrent\threads\synchronization\synchronizables</Filter>
+    </ClCompile>
+    <ClCompile Include="concurrent\threads\synchronization\synchronizables\unsynchronized.cc">
+      <Filter>Source Files\concurrent\threads\synchronization\synchronizables</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -149,6 +149,12 @@ public:
       auto_collection< V, array_list<V> >&         /* clustering result */
    ) const;
 
+   /*
+   * Declare node and edge classes.
+   */
+   class node;
+   class edge;
+
 protected:
    /*
     * List of merged vertex numbers.
@@ -178,12 +184,6 @@ protected:
        */
       v_list(const v_list& v_lst) : v_num(v_lst.v_num), next(v_lst.next) { }
    };
-   
-   /*
-    * Declare node and edge classes.
-    */
-   class node;
-   class edge;
    
    /*
     * Node in the graph.

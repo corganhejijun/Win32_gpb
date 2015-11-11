@@ -33,7 +33,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -149,6 +149,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="concurrent\threads\auto_parallelize.cc" />
+    <ClCompile Include="concurrent\threads\child_thread.cc" />
+    <ClCompile Include="concurrent\threads\runnable.cc" />
+    <ClCompile Include="concurrent\threads\synchronization\counter.cc" />
+    <ClCompile Include="concurrent\threads\synchronization\semphore.cc" />
+    <ClCompile Include="concurrent\threads\synchronization\synchronizables\synchronizable.cc" />
+    <ClCompile Include="concurrent\threads\synchronization\synchronizables\synchronized.cc" />
+    <ClCompile Include="concurrent\threads\synchronization\synchronizables\synchronized_rw.cc" />
+    <ClCompile Include="concurrent\threads\synchronization\synchronizables\unsynchronized.cc" />
+    <ClCompile Include="concurrent\threads\thread.cc" />
     <ClCompile Include="io\formats\image\jpeg.cc" />
     <ClCompile Include="io\formats\image\png.cc" />
     <ClCompile Include="io\serialization\serial_file_istream.cc" />
@@ -179,7 +189,6 @@
     <ClCompile Include="math\geometry\triangle_2D.cc" />
     <ClCompile Include="math\geometry\triangle_3D.cc" />
     <ClCompile Include="math\geometry\triangulation.cc" />
-    <ClCompile Include="math\libraries\lib_image.cc" />
     <ClCompile Include="math\libraries\lib_matrix.cc" />
     <ClCompile Include="math\libraries\lib_signal.cc" />
     <ClCompile Include="math\math.cc" />
