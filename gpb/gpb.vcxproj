@@ -22,6 +22,7 @@
     <ProjectGuid>{D2D8C5D1-0D53-43CF-A021-5566EA19893C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>gpb</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -189,6 +190,7 @@
     <ClCompile Include="math\geometry\triangle_2D.cc" />
     <ClCompile Include="math\geometry\triangle_3D.cc" />
     <ClCompile Include="math\geometry\triangulation.cc" />
+    <ClCompile Include="math\libraries\lib_image.cc" />
     <ClCompile Include="math\libraries\lib_matrix.cc" />
     <ClCompile Include="math\libraries\lib_signal.cc" />
     <ClCompile Include="math\math.cc" />

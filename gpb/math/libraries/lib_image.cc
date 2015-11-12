@@ -4113,7 +4113,7 @@ namespace math {
          * Skeletonization (2D).
          ***************************************************************************/
 
-        namespace {
+        namespace skeleton_element_namespace{
             // Skeleton element.
             class skeleton_element {
             public:
@@ -4213,43 +4213,43 @@ namespace math {
          */
         matrix<> lib_image::skeletonize_2D(const matrix<>& m) {
             /* initialize comparison functors */
-            static const skeleton_element_priority_functor* f_prio = new skeleton_element_priority_functor();
-            static const skeleton_element_compare_functor* f_search = new skeleton_element_compare_functor();
+            static const skeleton_element_namespace::skeleton_element_priority_functor* f_prio = new skeleton_element_namespace::skeleton_element_priority_functor();
+            static const skeleton_element_namespace::skeleton_element_compare_functor* f_search = new skeleton_element_namespace::skeleton_element_compare_functor();
             /* initialize skeleton matrix */
             matrix<> skel(m);
-            /* check that matrix is 2D */
+            // check that matrix is 2D 
             if (skel._dims.size() != 2)
                 throw ex_invalid_argument("matrix must be 2D");
-            /* get matrix size */
+            // get matrix size
             unsigned long size_x = skel._dims[0];
             unsigned long size_y = skel._dims[1];
-            /* initialize queue of skeleton elements */
-            auto_collection< skeleton_element, queue_set<skeleton_element> > q(
-                new queue_set<skeleton_element>(*f_prio, *f_search)
-                );
+            // initialize queue of skeleton elements 
             unsigned long ind = 0;
+            queue_set<skeleton_element_namespace::skeleton_element> *queue = NULL;
+            queue = new queue_set<skeleton_element_namespace::skeleton_element>(*f_prio, *f_search);
+            auto_collection< skeleton_element_namespace::skeleton_element, queue_set<skeleton_element_namespace::skeleton_element> > q(queue);
             for (unsigned long x = 0; x < size_x; x++) {
                 for (unsigned long y = 0; y < size_y; y++) {
-                    /* compute removability of element */
+                    // compute removability of element
                     bool is_candidate = false;
                     bool is_erodable = false;
                     bool is_removable = false;
-                    skeleton_status(skel._data, size_x, size_y, x, y, ind, is_candidate, is_erodable, is_removable);
-                    /* enqueue candidate elements */
+                    skeleton_element_namespace::skeleton_status(skel._data, size_x, size_y, x, y, ind, is_candidate, is_erodable, is_removable);
+                    // enqueue candidate elements
                     if (is_candidate) {
-                        auto_ptr<skeleton_element> el(
-                            new skeleton_element(x, y, skel._data[ind], is_erodable, is_removable));
+                        auto_ptr<skeleton_element_namespace::skeleton_element> el(
+                            new skeleton_element_namespace::skeleton_element(x, y, skel._data[ind], is_erodable, is_removable));
                         q->enqueue(*el);
                         el.release();
                     }
-                    /* increment linear index */
+                    // increment linear index
                     ind++;
                 }
             }
-            /* repeatedly remove elements and update skeleton */
+            // repeatedly remove elements and update skeleton
             while (!(q->is_empty())) {
                 // dequeue element 
-                auto_ptr<skeleton_element> el(&(q->dequeue()));
+                auto_ptr<skeleton_element_namespace::skeleton_element> el(&(q->dequeue()));
                 // check if skeletonization is complete 
                 if (!(el->is_removable))
                     break;
@@ -4272,14 +4272,13 @@ namespace math {
                         // check if on skeleton 
                         if (skel._data[ind] != 0) {
                             // check if element is in queue 
-                            skeleton_element el_search(x, y, 0, false, false);
+                            skeleton_element_namespace::skeleton_element el_search(x, y, 0, false, false);
                             if (q->contains(el_search)) {
                                 // find element in queue 
-                                skeleton_element& el_curr = q->find(el_search);
+                                skeleton_element_namespace::skeleton_element& el_curr = q->find(el_search);
                                 // update element status 
                                 bool is_candidate = true;
-                                skeleton_status(skel._data, size_x, size_y, x, y, ind,
-                                    is_candidate, el_curr.is_erodable, el_curr.is_removable);
+                                skeleton_element_namespace::skeleton_status(skel._data, size_x, size_y, x, y, ind, is_candidate, el_curr.is_erodable, el_curr.is_removable);
                                 // update element in queue 
                                 q->update(el_curr);
                             }

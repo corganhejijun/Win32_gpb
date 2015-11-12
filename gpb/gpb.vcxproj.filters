@@ -366,6 +366,9 @@
     <ClCompile Include="concurrent\threads\synchronization\synchronizables\unsynchronized.cc">
       <Filter>Source Files\concurrent\threads\synchronization\synchronizables</Filter>
     </ClCompile>
+    <ClCompile Include="math\libraries\lib_image.cc">
+      <Filter>Source Files\math\libraries</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\io\formats\image\jpeg.hh">

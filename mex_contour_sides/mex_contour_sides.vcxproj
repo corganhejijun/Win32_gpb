@@ -76,7 +76,7 @@
     <LinkIncremental>true</LinkIncremental>
     <TargetExt>.mexw64</TargetExt>
     <IncludePath>C:\Program Files\MATLAB\R2014a\extern\include;$(ProjectDir)..\gpb\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft;$(SolutionDir)\x64\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft;$(SolutionDir)\x64\Debug;$(SolutionDir)\gpb\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -111,7 +111,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libmex.lib;libmx.lib;gpb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libmex.lib;libmx.lib;gpb.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
