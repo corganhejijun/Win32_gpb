@@ -22,6 +22,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mex_contour_sides", "mex_co
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mex_line_inds", "mex_line_inds\mex_line_inds.vcxproj", "{5CEC73F6-9CF6-47A6-A646-465B3B13BA46}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mex_nonmax_oriented", "mex_nonmax_oriented\mex_nonmax_oriented.vcxproj", "{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -123,6 +125,18 @@ Global
 		{5CEC73F6-9CF6-47A6-A646-465B3B13BA46}.Release|Win32.Build.0 = Release|Win32
 		{5CEC73F6-9CF6-47A6-A646-465B3B13BA46}.Release|x64.ActiveCfg = Release|x64
 		{5CEC73F6-9CF6-47A6-A646-465B3B13BA46}.Release|x64.Build.0 = Release|x64
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Debug|Win32.Build.0 = Debug|Win32
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Debug|x64.ActiveCfg = Debug|x64
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Debug|x64.Build.0 = Debug|x64
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Release|Win32.ActiveCfg = Release|Win32
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Release|Win32.Build.0 = Release|Win32
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Release|x64.ActiveCfg = Release|x64
+		{88CD02DE-C1CD-4ECB-A6E4-4B4965DB97C5}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
