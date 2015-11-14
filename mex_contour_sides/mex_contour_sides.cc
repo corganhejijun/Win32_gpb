@@ -98,7 +98,7 @@ mxArray* to_mxArray(const matrix<>& m) {
 /*
  * Convert an array to an mxArray.
  */
-mxArray* to_mxArray(const array<double>& m) {
+mxArray* to_mxArray(const lang::array<double>& m) {
    unsigned long mrows = m.size();
    unsigned long ncols = 1;
    mxArray *a = mxCreateDoubleMatrix(
@@ -183,8 +183,8 @@ void mexFunction(int nlhs, mxArray *plhs[],
       mxArray* mx_e_x_coords = mxCreateCellMatrix(static_cast<int>(n_edges), 1);
       mxArray* mx_e_y_coords = mxCreateCellMatrix(static_cast<int>(n_edges), 1);
       for (unsigned long n = 0; n < n_edges; n++) {
-         array<double> e_x(contours.edge(n).x_coords);
-         array<double> e_y(contours.edge(n).y_coords);
+         lang::array<double> e_x(contours.edge(n).x_coords);
+         lang::array<double> e_y(contours.edge(n).y_coords);
          mxSetCell(mx_e_x_coords, static_cast<int>(n), to_mxArray(e_x));
          mxSetCell(mx_e_y_coords, static_cast<int>(n), to_mxArray(e_y));
       }
