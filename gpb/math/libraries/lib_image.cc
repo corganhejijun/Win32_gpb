@@ -796,16 +796,16 @@ namespace math {
                 unsigned long size_x_dst,  /* size of destination */
                 unsigned long size_y_dst)
             {
-                /* check that matrices are nonempty */
+                // check that matrices are nonempty
                 if ((size_x_src > 0) && (size_y_src > 0) &&
                     (size_x_dst > 0) && (size_y_dst > 0))
                 {
-                    /* compute whether to anchor x, y extrema to existing extrema */
+                    // compute whether to anchor x, y extrema to existing extrema
                     const bool anchor_x =
                         ((size_x_dst >= 3) || ((size_x_dst == 2) && (size_x_src <= 2)));
                     const bool anchor_y =
                         ((size_y_dst >= 3) || ((size_y_dst == 2) && (size_y_src <= 2)));
-                    /* compute step sizes */
+                    // compute step sizes
                     const double step_x =
                         (anchor_x)
                         ? (static_cast<double>(size_x_src - 1) / static_cast<double>(size_x_dst - 1))
@@ -814,38 +814,38 @@ namespace math {
                         (anchor_y)
                         ? (static_cast<double>(size_y_src - 1) / static_cast<double>(size_y_dst - 1))
                         : (static_cast<double>(size_y_src - 1) / static_cast<double>(size_y_dst + 1));
-                    /* resample */
+                    // resample
                     double x = (anchor_x) ? 0 : step_x;
                     unsigned long n = 0;
                     for (unsigned long dst_x = 0; dst_x < size_x_dst; dst_x++) {
-                        /* compute integer coordinates bounding x-coordinate */
+                        // compute integer coordinates bounding x-coordinate
                         unsigned long x0 = static_cast<unsigned long>(math::floor(x));
                         unsigned long x1 = static_cast<unsigned long>(math::ceil(x));
                         if (x1 == size_x_src) { x1--; }
-                        /* compute distances to x-bounds */
+                        // compute distances to x-bounds
                         const double dist_x0 = x - x0;
                         const double dist_x1 = x1 - x;
-                        /* loop over y */
+                        // loop over y
                         double y = (anchor_y) ? 0 : step_y;
                         for (unsigned long dst_y = 0; dst_y < size_y_dst; dst_y++) {
-                            /* compute integer coordinates bounding y-coordinate */
+                            // compute integer coordinates bounding y-coordinate
                             unsigned long y0 = static_cast<unsigned long>(math::floor(y));
                             unsigned long y1 = static_cast<unsigned long>(math::ceil(y));
-                            /* compute distances to y-bounds */
+                            // compute distances to y-bounds
                             if (y1 == size_y_src) { y1--; }
                             const double dist_y0 = y - y0;
                             const double dist_y1 = y1 - y;
-                            /* grab matrix elements */
+                            // grab matrix elements
                             const T& m00 = m_src[x0*size_y_src + y0];
                             const T& m01 = m_src[x0*size_y_src + y1];
                             const T& m10 = m_src[x1*size_y_src + y0];
                             const T& m11 = m_src[x1*size_y_src + y1];
-                            /* interpolate in x-direction */
+                            // interpolate in x-direction
                             const T t0 = (x0 != x1) ? (dist_x1 * m00 + dist_x0 * m10) : m00;
                             const T t1 = (x0 != x1) ? (dist_x1 * m01 + dist_x0 * m11) : m01;
-                            /* interpolate in y-direction */
+                            // interpolate in y-direction
                             m_dst[n] = (y0 != y1) ? (dist_y1 * t0 + dist_y0 * t1) : t0;
-                            /* increment coordinate */
+                            // increment coordinate
                             n++;
                             y += step_y;
                         }
@@ -993,52 +993,50 @@ namespace math {
                 unsigned long size_y_dst,
                 double ori)                /* orientation */
             {
-                /* check that matrices are nonempty */
+                // check that matrices are nonempty
                 if ((size_x_src > 0) && (size_y_src > 0) && (size_x_dst > 0) && (size_y_dst > 0)) {
-                    /* compute sin and cos of rotation angle */
+                    // compute sin and cos of rotation angle
                     const double cos_ori = math::cos(ori);
                     const double sin_ori = math::sin(ori);
-                    /* compute location of origin in src */
+                    // compute location of origin in src
                     const double origin_x_src = static_cast<double>((size_x_src - 1)) / 2;
                     const double origin_y_src = static_cast<double>((size_y_src - 1)) / 2;
-                    /* rotate */
+                    // rotate
                     double u = -(static_cast<double>((size_x_dst - 1)) / 2);
                     unsigned long n = 0;
                     for (unsigned long dst_x = 0; dst_x < size_x_dst; dst_x++) {
                         double v = -(static_cast<double>((size_y_dst - 1)) / 2);
                         for (unsigned long dst_y = 0; dst_y < size_y_dst; dst_y++) {
-                            /* reverse rotate by orientation and shift by origin offset */
+                            // reverse rotate by orientation and shift by origin offset
                             double x = u * cos_ori + v * sin_ori + origin_x_src;
                             double y = v * cos_ori - u * sin_ori + origin_y_src;
-                            /* check that location is in first quadrant */
+                            // check that location is in first quadrant
                             if ((x >= 0) && (y >= 0)) {
-                                /* compute integer bounds on location */
+                                // compute integer bounds on location
                                 unsigned long x0 = static_cast<unsigned long>(math::floor(x));
                                 unsigned long x1 = static_cast<unsigned long>(math::ceil(x));
                                 unsigned long y0 = static_cast<unsigned long>(math::floor(y));
                                 unsigned long y1 = static_cast<unsigned long>(math::ceil(y));
-                                /* check that location is within src matrix */
+                                // check that location is within src matrix
                                 if ((0 <= x0) && (x1 < size_x_src) && (0 <= y0) && (y1 < size_y_src)) {
-                                    /* compute distances to bounds */
+                                    // compute distances to bounds
                                     double dist_x0 = x - x0;
                                     double dist_x1 = x1 - x;
                                     double dist_y0 = y - y0;
                                     double dist_y1 = y1 - y;
-                                    /* grab matrix elements */
+                                    // grab matrix elements
                                     const T& m00 = m_src[x0*size_y_src + y0];
                                     const T& m01 = m_src[x0*size_y_src + y1];
                                     const T& m10 = m_src[x1*size_y_src + y0];
                                     const T& m11 = m_src[x1*size_y_src + y1];
-                                    /* interpolate in x-direction */
-                                    const T t0 =
-                                        (x0 != x1) ? (dist_x1 * m00 + dist_x0 * m10) : m00;
-                                    const T t1 =
-                                        (x0 != x1) ? (dist_x1 * m01 + dist_x0 * m11) : m01;
-                                    /* interpolate in y-direction */
+                                    // interpolate in x-direction
+                                    const T t0 = (x0 != x1) ? (dist_x1 * m00 + dist_x0 * m10) : m00;
+                                    const T t1 = (x0 != x1) ? (dist_x1 * m01 + dist_x0 * m11) : m01;
+                                    // interpolate in y-direction
                                     m_dst[n] = (y0 != y1) ? (dist_y1 * t0 + dist_y0 * t1) : t0;
                                 }
                             }
-                            /* increment coordinate */
+                            // increment coordinate
                             n++;
                             v++;
                         }
@@ -2267,8 +2265,7 @@ namespace math {
                  * Compute oe strength and phase.
                  */
                 virtual void run() {
-                    _oe_strength =
-                        sqrt(prod(_oe_even, _oe_even) + prod(_oe_odd, _oe_odd)).real();
+                    _oe_strength = sqrt(prod(_oe_even, _oe_even) + prod(_oe_odd, _oe_odd)).real();
                     _oe_phase = atan2(_oe_odd, _oe_even);
                 }
 

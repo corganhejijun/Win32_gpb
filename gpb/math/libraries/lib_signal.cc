@@ -79,7 +79,7 @@ void compute_fft(
    complex<> omega)     /* Nth root of unity */
 {
    if (N > 1) {
-      /* place even elements in first half, odd elements in second */
+      // place even elements in first half, odd elements in second
       unsigned long half_N = N/2;
       unsigned long twice_step = step*2;
       for (unsigned long n = 0, pos = 0; n < half_N; n++, pos += twice_step)
@@ -88,13 +88,13 @@ void compute_fft(
          temp[n] = x[pos];
       for (unsigned long n = 0, pos = 0; n < N; n++, pos += step)
          x[pos] = temp[n];
-      /* recursively compute fft */
+      // recursively compute fft
       unsigned long pos_u = 0;
       unsigned long pos_v = step*half_N;
       complex<> omega_sq = omega*omega;
       compute_fft(x,           temp,            half_N, step, omega_sq);
       compute_fft(&(x[pos_v]), &(temp[half_N]), half_N, step, omega_sq);
-      /* merge results */
+      // merge results
       complex<> omega_curr(1,0);
       for (unsigned long n = 0; n < half_N; n++) {
          complex<> u = x[pos_u];
@@ -210,9 +210,7 @@ cmatrix<> lib_signal::fft(const cmatrix<>& m, unsigned long d) {
       /* compute step size along dimension */
       unsigned long step_size = matrix<>::dims_size(m_result._dims, d);
       /* compute nth root of unity */
-      complex<> omega = math::exp(
-         complex<>(0, -2*M_PIl/static_cast<double>(n_steps))
-      );
+      complex<> omega = math::exp(complex<>(0, -2 * M_PIl / static_cast<double>(n_steps)));
       /* compute result matrix */
       cmatrix<> temp(n_steps, 1);
       unsigned long n_inds = inds.size();
@@ -244,9 +242,7 @@ cmatrix<> lib_signal::ifft(const cmatrix<>& m, unsigned long d) {
       /* compute step size along dimension */
       unsigned long step_size = matrix<>::dims_size(m_result._dims, d);
       /* compute nth root of unity */
-      complex<> omega = math::exp(
-         complex<>(0, 2*M_PIl/static_cast<double>(n_steps))
-      );
+      complex<> omega = math::exp(complex<>(0, 2 * M_PIl / static_cast<double>(n_steps)));
       /* compute result matrix */
       cmatrix<> temp(n_steps, 1);
       unsigned long n_inds = inds.size();
@@ -286,8 +282,7 @@ void compute_dct(
       double pik_N  = pi_N * static_cast<double>(k);
       double pik_2N = 0.5 * pik_N;
       for (unsigned long n = 0, n_ind = 0; n < N; n++, n_ind += step) {
-         X[k_ind] +=
-            x[n_ind] * math::cos(pik_N * static_cast<double>(n) + pik_2N);
+         X[k_ind] += x[n_ind] * math::cos(pik_N * static_cast<double>(n) + pik_2N);
       }
    }
 }
@@ -467,8 +462,7 @@ void compute_dst(
       double pik_N  = pi_N * static_cast<double>(k);
       double pik_2N = 0.5 * pik_N;
       for (unsigned long n = 0, n_ind = 0; n < N; n++, n_ind += step) {
-         X[k_ind] +=
-            x[n_ind] * math::sin(pik_N * static_cast<double>(n) + pik_2N);
+         X[k_ind] += x[n_ind] * math::sin(pik_N * static_cast<double>(n) + pik_2N);
       }
    }
 }
