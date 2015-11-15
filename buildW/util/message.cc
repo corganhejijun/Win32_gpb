@@ -90,7 +90,7 @@ namespace Util {
 
       int len = strlen(mess);
       message[frame] = new char[len+1];
-      strcpy_s(message[frame], len, mess);
+      strcpy_s(message[frame], len + 1, mess);
    
       numSteps[frame] = 0;
       stepSize[frame] = 0;
@@ -113,7 +113,7 @@ namespace Util {
 
       int len = strlen(mess);
       message[frame] = new char[len+1];
-      strcpy_s(message[frame], len, mess);
+      strcpy_s(message[frame], len + 1, mess);
    
       numSteps[frame] = totalSteps;
       stepSize[frame] = (int) Util::max((float)totalSteps / NUM_DOTS,2.0f);

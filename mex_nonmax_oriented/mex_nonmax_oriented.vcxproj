@@ -112,6 +112,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>libmex.lib;libmx.lib;gpb.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>mex_nonmax_oriented.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

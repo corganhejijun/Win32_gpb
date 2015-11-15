@@ -1,0 +1,3 @@
+LIBRARY "mex_contour_sides"
+EXPORTS
+    mexFunction

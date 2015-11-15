@@ -115,6 +115,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>libmex.lib;libmx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>savgol_border.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
